@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Language Practice – Real-life situations</title>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8FAFC;--surf:#FFFFFF;--surf2:#F1F5F9;--line:#E2E8F0;--ink:#0F172A;--sec:#475569;--mut:#94A3B8;--pri:#2563EB;--prih:#1D4ED8;--pl:#DBEAFE;--prit:#1D4ED8;--sb:#EFF6FF;--sbt:#2563EB;--ok:#22C55E;--okbg:#DCFCE7;--okt:#15803D;--er:#EF4444;--erbg:#FEE2E2;--ert:#B91C1C;--wa:#F59E0B;--wabg:#FEF3C7;--wat:#92400E;--dis:#E2E8F0;--dist:#94A3B8;--h1:#EFF6FF;--h2:#DBEAFE;--sh:0 1px 2px rgba(15,23,42,.06);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F172A;--surf:#1E293B;--surf2:#334155;--line:#475569;--ink:#F8FAFC;--sec:#CBD5E1;--mut:#94A3B8;--pri:#3B82F6;--prih:#60A5FA;--pl:rgba(59,130,246,.18);--prit:#93C5FD;--sb:rgba(59,130,246,.16);--sbt:#93C5FD;--ok:#22C55E;--okbg:rgba(34,197,94,.16);--okt:#86EFAC;--er:#F87171;--erbg:rgba(248,113,113,.16);--ert:#FCA5A5;--wa:#FBBF24;--wabg:rgba(251,191,36,.16);--wat:#FCD34D;--dis:#334155;--dist:#94A3B8;--h1:#1E293B;--h2:#1E3A5F;--sh:none}}
+:root[data-theme="dark"]{--bg:#0F172A;--surf:#1E293B;--surf2:#334155;--line:#475569;--ink:#F8FAFC;--sec:#CBD5E1;--mut:#94A3B8;--pri:#3B82F6;--prih:#60A5FA;--pl:rgba(59,130,246,.18);--prit:#93C5FD;--sb:rgba(59,130,246,.16);--sbt:#93C5FD;--ok:#22C55E;--okbg:rgba(34,197,94,.16);--okt:#86EFAC;--er:#F87171;--erbg:rgba(248,113,113,.16);--ert:#FCA5A5;--wa:#FBBF24;--wabg:rgba(251,191,36,.16);--wat:#FCD34D;--dis:#334155;--dist:#94A3B8;--h1:#1E293B;--h2:#1E3A5F;--sh:none}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Prompt,system-ui,sans-serif}
+main{max-width:640px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:1.6rem;margin:8px 0 4px;font-weight:600}
+.sub{color:var(--sec);margin:0 0 20px}
+button:focus-visible,input:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
+.scenes{display:grid;gap:12px}
+.scene{display:flex;align-items:center;gap:14px;text-align:left;width:100%;background:var(--surf);color:var(--ink);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);padding:14px 16px;font:inherit;cursor:pointer}
+.scene:hover,.cat:not(:disabled):hover{border-color:var(--pri)}
+.scene b{display:block;font-weight:600}
+.scene small{color:var(--sec)}
+.scene .em{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--surf2);font-size:1.5rem}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}
+.link{background:none;border:0;color:var(--sec);font:inherit;cursor:pointer;padding:6px 8px;border-radius:8px}
+.link:hover{color:var(--prit);background:var(--pl)}
+.prog{height:6px;background:var(--surf2);border-radius:3px;flex:1;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--pri);width:0;transition:width .3s}
+.chat{display:grid;gap:10px;margin-bottom:14px}
+.b{max-width:88%;padding:10px 14px;border-radius:16px}
+.staff{background:var(--surf);border:1px solid var(--line);border-bottom-left-radius:4px;box-shadow:var(--sh)}
+.me{background:var(--pri);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.me.bad{background:var(--erbg);color:var(--ert);border:1px solid var(--er)}
+.th{display:block;color:var(--sec);font-size:.88rem;margin-top:2px}
+.spk{background:none;border:0;cursor:pointer;font-size:1rem;padding:0 4px}
+.fb{border-radius:12px;padding:10px 14px;font-size:.95rem;border:1px solid transparent}
+.fb.ok{background:var(--okbg);color:var(--okt);border-color:var(--ok)}
+.fb.try{background:var(--erbg);color:var(--ert);border-color:var(--er)}
+.fb.warn{background:var(--wabg);color:var(--wat);border-color:var(--wa)}
+.fb.sel{background:var(--pl);color:var(--prit);border-color:var(--pri)}
+.fb .ans{color:var(--ink);display:block;margin-top:4px}
+.modes{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:999px;margin-bottom:10px}
+.modes button{flex:1;border:0;border-radius:999px;padding:8px;font:inherit;background:none;color:var(--sec);cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--surf);color:var(--prit);font-weight:600;box-shadow:var(--sh)}
+.modes button:disabled{color:var(--dist);cursor:not-allowed}
+.row{display:flex;gap:8px}
+input[type=text]{flex:1;min-width:0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surf);color:var(--ink);font:inherit}
+input[type=text]::placeholder{color:var(--mut)}
+input[type=text]:focus{border-color:var(--pri)}
+.btn{border:0;border-radius:12px;padding:12px 18px;font:inherit;font-weight:500;background:var(--pri);color:#fff;cursor:pointer}
+.btn:hover{background:var(--prih)}
+.btn.alt{background:var(--sb);color:var(--sbt)}
+.btn.alt:hover{background:var(--pl)}
+.btn:disabled{background:var(--dis);color:var(--dist);cursor:not-allowed}
+.mic{width:100%;padding:18px;font-size:1.05rem}
+.mic.on,.mic.on:hover{background:var(--er);color:#fff}
+.heard{color:var(--sec);min-height:1.5em;margin:8px 0}
+.tools{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.done{text-align:center;padding:24px 0}
+.done .big{font-size:2.4rem}
+.note{color:var(--sec);font-size:.88rem;margin-top:8px}
+.vocab{background:var(--surf);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);padding:10px 16px;margin-bottom:14px}
+.vocab summary{cursor:pointer;font-weight:500}
+.vocab .w{padding:3px 0}
+.hero{background:var(--surf);color:var(--ink);border:1px solid var(--line);border-top:4px solid var(--pri);border-radius:16px;box-shadow:var(--sh);padding:22px 20px;margin-bottom:22px}
+.hero .tag{letter-spacing:.14em;font-size:.75rem;color:var(--prit);font-weight:600}
+.hero h1{margin:6px 0;color:var(--ink);font-size:1.5rem}
+.hero p{margin:0 0 14px;color:var(--sec)}
+.stats{display:flex;gap:8px;flex-wrap:wrap}
+.stats span{background:var(--surf2);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:.88rem}
+.sec{font-size:1.05rem;margin:0 0 10px}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.cat{display:flex;flex-direction:column;gap:4px;text-align:left;background:var(--surf);color:var(--ink);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);padding:14px;font:inherit;cursor:pointer}
+.cat .em{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--cc,#2563EB) 14%,transparent);font-size:1.5rem}
+.cat b{margin-top:4px}
+.cat small{color:var(--sec)}
+.cat .pill{align-self:flex-start;margin-top:6px;background:var(--surf2);color:var(--sec);border-radius:999px;padding:2px 10px;font-size:.78rem}
+.cat .pill.go{background:var(--pl);color:var(--prit)}
+.cat:disabled{opacity:.6;cursor:not-allowed;box-shadow:none}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;background:var(--surf);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;cursor:pointer}
+.opt:hover{border-color:var(--pri);background:var(--pl)}
+.langs{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 14px;margin-bottom:6px}
+.lang{flex:0 0 auto;display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surf);color:var(--ink);border-radius:999px;padding:8px 16px;font:inherit;cursor:pointer}
+.lang:hover{border-color:var(--pri)}
+.lang[aria-pressed="true"]{background:var(--pl);border-color:var(--pri);color:var(--prit);font-weight:600}
+.lang:disabled{background:var(--surf2);color:var(--dist);cursor:not-allowed;border-color:var(--line)}
+.lang small{color:var(--mut)}
+.grp{color:var(--sec);font-size:.85rem;margin:14px 0 8px}
+.kind{display:inline-block;background:var(--pl);color:var(--prit);border-radius:999px;padding:2px 12px;font-size:.8rem;margin-bottom:8px}
+.chip{border:1px solid var(--line);background:var(--surf);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;cursor:pointer;margin:0 6px 6px 0}
+.chip:hover{border-color:var(--pri)}
+.built{min-height:56px;border:2px dashed var(--line);background:var(--surf2);border-radius:16px;padding:10px 10px 4px;margin-bottom:12px}
+.built .chip{background:var(--pl);border-color:var(--pri);color:var(--prit)}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+var T=function(s,th,a,kw){return{s:s,th:th,a:a,kw:kw,need:1}};
+var SCENES=[
+{id:"airport",em:"✈️",name:"Airport",desc:"Immigration and check-in",v:[["passport","พาสปอร์ต"],["visa","วีซ่า"],["luggage","สัมภาระ"],["customs","ศุลกากร"],["boarding pass","บัตรโดยสาร"],["declare","สำแดง"]],turns:[
+T("Good morning! May I see your passport, please?","สวัสดีตอนเช้า ขอดูพาสปอร์ตหน่อยครับ","Here you go.",["here","passport","sure","yes"]),
+T("What is the purpose of your visit?","มาด้วยจุดประสงค์อะไรครับ","I'm here for a holiday.",["holiday","vacation","tourist","travel","visit","trip"]),
+T("How long will you stay?","จะพักนานแค่ไหนครับ","I'll stay for one week.",["week","day","night","month"]),
+T("Do you have anything to declare?","มีสิ่งของต้องสำแดงไหมครับ","No, nothing to declare.",["no","nothing","declare"]),
+T("Welcome! Enjoy your stay.","ยินดีต้อนรับ ขอให้สนุกกับการเที่ยวนะครับ","Thank you very much.",["thank"])]},
+{id:"hotel",em:"🏨",name:"Hotel",desc:"Check in and ask for help",v:[["reservation","การจอง"],["check-in","เช็คอิน"],["check-out","เช็คเอาต์"],["towel","ผ้าเช็ดตัว"],["key card","คีย์การ์ด"],["floor","ชั้น"]],turns:[
+T("Welcome! Do you have a reservation?","ยินดีต้อนรับ มีการจองไว้ไหมครับ","Yes, I have a reservation.",["reservation","booked","booking","yes"]),
+T("Could I have your name, please?","ขอชื่อของคุณหน่อยได้ไหมครับ","My name is Somchai.",["name","i'm","i am"]),
+T("Your room is on the fifth floor. Breakfast is from seven to ten.","ห้องอยู่ชั้น 5 อาหารเช้าเสิร์ฟเจ็ดโมงถึงสิบโมง","Thank you. What time is check-out?",["check-out","checkout","check out","what time","thank"]),
+T("Is there anything else I can help you with?","มีอะไรให้ช่วยอีกไหมครับ","Yes, could I have some extra towels?",["towel","extra","wifi","wi-fi","could i","can i"]),
+T("Sure, I'll send them right up.","ได้ครับ เดี๋ยวส่งขึ้นไปให้เลย","Thank you. Also, what's the Wi-Fi password?",["wifi","wi-fi","password","thank"])]},
+{id:"restaurant",em:"🍜",name:"Restaurant",desc:"Order and pay",v:[["menu","เมนู"],["bill","ใบเสร็จ/บิล"],["dessert","ของหวาน"],["spicy","เผ็ด"],["allergic","แพ้"],["tip","ทิป"]],turns:[
+T("Hi! Table for how many?","สวัสดีครับ โต๊ะสำหรับกี่ท่านครับ","A table for two, please.",["two","table","three","four","one","2","3","4"]),
+T("Are you ready to order?","พร้อมสั่งอาหารหรือยังครับ","I'd like the chicken curry, please.",["i'd like","i would like","can i have","could i have","please"]),
+T("Anything to drink?","รับเครื่องดื่มอะไรไหมครับ","Just water, please.",["water","tea","coffee","juice","beer","drink","soda"]),
+T("Would you like anything for dessert?","รับของหวานไหมครับ","No, thank you. Could I have the bill, please?",["bill","check","no thank","no, thank","dessert","ice cream"]),
+T("Of course. Cash or card?","ได้ครับ จ่ายเงินสดหรือบัตรครับ","By card, please.",["card","cash"])]},
+{id:"directions",em:"🧭",name:"Asking directions",desc:"Find the train station",v:[["turn left","เลี้ยวซ้าย"],["go straight","เดินตรงไป"],["traffic light","ไฟจราจร"],["corner","หัวมุม"],["far","ไกล"],["nearby","ใกล้ๆ"]],turns:[
+T("Excuse me, can I help you?","ขอโทษนะครับ ให้ช่วยอะไรไหมครับ","Yes, how do I get to the train station?",["station","get to","where","how do i","how can i"]),
+T("Go straight, then turn left at the traffic light. It's ten minutes on foot.","เดินตรงไป แล้วเลี้ยวซ้ายที่ไฟแดง เดินประมาณสิบนาที","Thank you. Is it far from here?",["far","thank","how long","how far"]),
+T("No, it's very close. Do you want me to show you on the map?","ไม่ไกลเลยครับ ให้ชี้บนแผนที่ไหมครับ","Yes, please. That would be great.",["yes","please","map","great"]),
+T("Here you go. Anything else?","เรียบร้อยครับ มีอะไรอีกไหมครับ","No, that's all. Thanks for your help.",["thank","that's all","no"]),
+T("You're welcome. Have a nice trip!","ยินดีครับ เดินทางโดยสวัสดิภาพนะครับ","Thank you very much!",["thank"])]},
+{id:"taxi",em:"🚕",name:"Taxi",desc:"Give a destination and pay",v:[["meter","มิเตอร์"],["fare","ค่าโดยสาร"],["address","ที่อยู่"],["traffic","การจราจร"],["change","เงินทอน"],["trunk","ท้ายรถ"]],turns:[
+T("Hello! Where would you like to go?","สวัสดีครับ จะไปไหนครับ","To the city center, please.",["to the","please","go to","center","centre","airport","hotel"]),
+T("Do you know the address?","ทราบที่อยู่ไหมครับ","Yes, here is the address.",["address","here","yes","no"]),
+T("It's about twenty minutes, depending on traffic.","ประมาณยี่สิบนาที ขึ้นอยู่กับการจราจรครับ","Okay. Could you turn on the meter, please?",["meter","okay","ok","fine"]),
+T("We're here. That will be twenty dollars.","ถึงแล้วครับ ค่าโดยสารยี่สิบดอลลาร์","Here you go. Keep the change.",["here","keep","change","thank","card"]),
+T("Thank you! Have a great day.","ขอบคุณครับ ขอให้วันนี้เป็นวันที่ดีนะครับ","You too. Goodbye!",["you too","bye","thank"])]},
+{id:"shopping",em:"🛍️",name:"Shopping",desc:"Prices, bargaining, sizes",v:[["discount","ส่วนลด"],["size","ไซส์"],["receipt","ใบเสร็จ"],["fitting room","ห้องลองเสื้อ"],["cash","เงินสด"],["refund","คืนเงิน"]],turns:[
+T("Hi! Can I help you find something?","สวัสดีครับ ให้ช่วยหาอะไรไหมครับ","I'm just looking, thank you.",["looking","browsing","thank"]),
+T("That's a popular one. It comes in blue and white.","ตัวนี้ขายดีครับ มีสีฟ้าและสีขาว","How much is this one?",["how much","price","cost"]),
+T("It's thirty dollars.","ราคาสามสิบดอลลาร์ครับ","Do you have a discount?",["discount","cheaper","lower","less","deal"]),
+T("I can give you ten percent off. What size do you wear?","ลดให้สิบเปอร์เซ็นต์ครับ ใส่ไซส์อะไรครับ","I wear a medium. Can I try it on?",["medium","small","large","size","try","fitting"]),
+T("The fitting room is over there.","ห้องลองเสื้ออยู่ตรงนั้นครับ","Thank you. I'll take it.",["i'll take","i will take","thank","buy"])]},
+{id:"clinic",em:"🏥",name:"Pharmacy and clinic",desc:"Describe your symptoms",v:[["pharmacy","ร้านขายยา"],["fever","ไข้"],["headache","ปวดหัว"],["allergy","ภูมิแพ้"],["prescription","ใบสั่งยา"],["ambulance","รถพยาบาล"]],turns:[
+T("Hello. What seems to be the problem?","สวัสดีครับ เป็นอะไรมาครับ","I don't feel well.",["feel","sick","ill","pain","hurt","headache","fever","stomach"]),
+T("Where does it hurt?","เจ็บตรงไหนครับ","My stomach hurts.",["hurt","stomach","head","throat","back","pain","ache"]),
+T("How long have you felt this way?","เป็นมานานแค่ไหนแล้วครับ","Since yesterday.",["since","yesterday","day","hour","morning","night","ago"]),
+T("Are you allergic to any medicine?","แพ้ยาอะไรไหมครับ","No, I'm not allergic to anything.",["allergic","no","yes","penicillin"]),
+T("Take this twice a day after meals.","ทานวันละสองครั้งหลังอาหารครับ","Okay, thank you very much.",["thank","okay","ok","got it","understand"])]}
+];
+var C=function(s,th,c){return{s:s,th:th,a:c[0],c:c,kw:[],need:1}};
+var NEW={
+airport:[
+T("Window seat or aisle seat?","จะนั่งริมหน้าต่างหรือริมทางเดินครับ","A window seat, please. / I'd prefer an aisle seat.",["window","aisle","seat"]),
+T("Your bag is over the weight limit.","กระเป๋าของคุณน้ำหนักเกินครับ","How much is the extra fee? / Can I take something out?",["how much","fee","take","out","pay","extra","sorry"]),
+T("Boarding starts at gate twelve in thirty minutes.","เริ่มขึ้นเครื่องที่เกท 12 ในอีก 30 นาทีครับ","Okay, thank you. Where is gate twelve?",["gate","where","thank","okay","ok"]),
+C("Which is a polite way to ask where the gate is?","ข้อไหนถามหาเกทได้สุภาพ",["Excuse me, could you tell me where gate 12 is?","Hey, where gate 12?","Gate 12 is where?"]),
+C("Your flight is delayed. What can you say to the staff?","เที่ยวบินล่าช้า พูดกับพนักงานว่าอย่างไรดี",["Do you know when the flight will leave?","Why you late?","I no wait."])],
+hotel:[
+T("Would you like a wake-up call tomorrow?","ต้องการให้โทรปลุกพรุ่งนี้ไหมครับ","Yes, at six thirty, please. / No, thank you. I have an alarm.",["yes","no","six","seven","am","alarm","thank"]),
+T("How can I help you?","ให้ช่วยอะไรไหมครับ","The air conditioner isn't working. / There's no hot water in my room.",["air","conditioner","hot water","not working","isn't working","broken","problem","no "]),
+T("Would you like me to call a taxi for you?","ให้เรียกแท็กซี่ให้ไหมครับ","Yes, please. I need to go to the airport. / No, thanks. I'll walk.",["yes","no","please","thank","airport"]),
+C("You want a late check-out. What do you say?","อยากเช็คเอาต์ช้า พูดว่าอย่างไร",["Could I check out a little later, please?","I stay more.","Late check-out give me."]),
+C("Which sentence reports a problem politely?","ประโยคไหนแจ้งปัญหาอย่างสุภาพ",["Excuse me, there's a problem with my room.","Your room is bad!","Fix it now."])],
+restaurant:[
+T("Would you like to see the menu?","ต้องการดูเมนูไหมครับ","Yes, please. What do you recommend? / Could I have the menu, please?",["menu","recommend","yes","please"]),
+T("How spicy would you like it?","ต้องการเผ็ดแค่ไหนครับ","Not too spicy, please. / Medium spicy, please.",["spicy","mild","not too","medium","hot"]),
+T("Do you have any food allergies?","แพ้อาหารอะไรไหมครับ","I'm allergic to peanuts. / No, I don't have any allergies.",["allerg","peanut","seafood","shrimp","no","nuts","dairy"]),
+C("The food is cold. What can you say?","อาหารเย็นแล้ว พูดว่าอย่างไร",["Excuse me, could you heat this up, please?","This is terrible!","Take it away."]),
+C("You want to take the leftovers home. What do you say?","อยากห่อกลับบ้าน พูดว่าอย่างไร",["Could I have a box to take this home, please?","Give me box.","I take food go."])],
+directions:[
+T("Are you looking for something?","กำลังหาอะไรอยู่หรือเปล่าครับ","Yes, I'm looking for a pharmacy. / I'm trying to find the nearest bus stop.",["looking","find","pharmacy","bus","station","where","yes"]),
+T("It's next to the bank, across the street.","อยู่ข้างธนาคาร ฝั่งตรงข้ามถนนครับ","Across the street? Okay, thanks! / Next to the bank. Got it, thank you.",["across","bank","okay","got it","thank","next"]),
+T("You can take bus number 25 from here.","ขึ้นรถเมล์สาย 25 ได้จากตรงนี้ครับ","Where is the bus stop? / How much is the ticket?",["where","how much","bus stop","ticket","how long","what time"]),
+C("You are lost. Which sentence is best?","คุณหลงทาง ประโยคไหนเหมาะที่สุด",["Excuse me, I think I'm lost. Could you help me?","Where is? Help.","You know road?"]),
+C("You didn't understand the directions. What do you say?","ฟังทางไม่เข้าใจ พูดว่าอย่างไร",["Sorry, could you say that again more slowly?","What? No understand.","Again."])],
+taxi:[
+T("Would you like the highway or the local road?","จะไปทางด่วนหรือทางธรรมดาครับ","The highway, please. / Whichever is faster.",["highway","local","faster","fast","road","expressway"]),
+T("Is the air conditioning okay for you?","แอร์เย็นพอไหมครับ","Could you make it a bit cooler? / It's perfect, thank you.",["cool","cold","warm","perfect","fine","okay","thank","turn"]),
+T("Do you want to stop anywhere on the way?","ต้องการแวะที่ไหนระหว่างทางไหมครับ","Yes, could you stop at an ATM? / No, straight to the hotel, please.",["stop","atm","no","straight","yes","please"]),
+C("You want the driver to stop here. What do you say?","อยากให้คนขับจอดตรงนี้ พูดว่าอย่างไร",["Could you stop here, please?","Stop stop!","Here park."]),
+C("The driver took a long route. What can you say politely?","คนขับอ้อมไกล พูดอย่างสุภาพว่าอย่างไร",["Excuse me, is there a shorter way?","You cheat me!","Why so long?"])],
+shopping:[
+T("Would you like a bag?","ต้องการถุงไหมครับ","No, thank you. I have my own bag. / Yes, please.",["bag","no","yes","thank","please"]),
+T("How would you like to pay?","จะชำระเงินแบบไหนครับ","Do you accept credit cards? / I'll pay by card.",["card","cash","accept","pay"]),
+T("Is there anything wrong with it?","มีปัญหากับสินค้าไหมครับ","It's too small. Do you have a bigger size? / There's a hole here.",["small","big","size","hole","broken","wrong","bigger","larger","another","exchange"]),
+C("You want to return an item. What do you say?","อยากคืนสินค้า พูดว่าอย่างไร",["I'd like to return this, please. Here's my receipt.","Take back this.","I give back."]),
+C("Which question asks for a different color?","ข้อไหนถามหาสีอื่น",["Do you have this in another color?","Other color have?","Color more?"])],
+clinic:[
+T("Have you taken any medicine today?","วันนี้ทานยาอะไรมาแล้วไหมครับ","Yes, I took some paracetamol. / No, I haven't taken anything.",["yes","no","took","taken","paracetamol","medicine"]),
+T("Do you have a fever or a cough?","มีไข้หรือไอไหมครับ","I have a fever and a sore throat. / I have a bad cough.",["fever","cough","sore","throat","cold","no"]),
+T("Do you need anything else?","ต้องการอะไรเพิ่มไหมครับ","Do you have anything for a headache? / I need some bandages.",["headache","bandage","vitamin","do you have","need","cream","anything"]),
+C("You need help urgently. What do you say?","ต้องการความช่วยเหลือด่วน พูดว่าอย่างไร",["Please call an ambulance. It's an emergency!","Help me please quick doctor.","I sick very."]),
+C("Which sentence describes a headache?","ประโยคไหนบอกว่าปวดหัว",["I have a terrible headache.","I have head pain very.","My head is angry."])]};
+SCENES.forEach(function(x){x.turns=x.turns.concat(NEW[x.id]||[])});
+var LANGS=[{id:"en",flag:"🇬🇧",name:"English",tts:"en-US"},{id:"zh",flag:"🇨🇳",name:"中文",tts:"zh-CN"},{id:"ja",flag:"🇯🇵",name:"日本語",tts:"ja-JP"},{id:"ko",flag:"🇰🇷",name:"한국어",tts:"ko-KR"},{id:"th",flag:"🇹🇭",name:"ภาษาไทย",tts:"th-TH"}];
+var lang="en";try{lang=localStorage.getItem("te_lang")||"en"}catch(e){}
+var trl="th";try{trl=localStorage.getItem("te_tr")||"th"}catch(e){}
+var TRL=[{id:"th",name:"ไทย",on:1},{id:"off",name:"Off",on:1},{id:"en",name:"English"},{id:"zh",name:"中文"},{id:"ja",name:"日本語"},{id:"ko",name:"한국어"}];
+function LG(){return LANGS.filter(function(x){return x.id===lang})[0]||LANGS[0]}
+var CATMAP={airport:"travel",hotel:"travel",directions:"travel",taxi:"travel",restaurant:"food",shopping:"shop",clinic:"health"};
+SCENES.forEach(function(x){x.lang="en";x.cat=CATMAP[x.id]});
+var CATS=[
+{id:"travel",em:"✈️",name:"Travel",desc:"Airport, hotel, directions, restaurant",col:"#2563EB"},
+{id:"daily",em:"🏠",name:"Daily Life",desc:"Waking up, shopping, cooking",col:"#10B981"},
+{id:"work",em:"💼",name:"Work",desc:"Meetings, email, coworkers, job interviews",col:"#6366F1"},
+{id:"talk",em:"🗣️",name:"Conversation",desc:"Small talk, meeting people, chatting, opinions",col:"#8B5CF6"},
+{id:"food",em:"🍔",name:"Food & Restaurant",desc:"Ordering, cafés, restaurants, food reviews",col:"#F59E0B"},
+{id:"shop",em:"🛍️",name:"Shopping",desc:"Buying, prices, sizes, returns, bargaining",col:"#EC4899"},
+{id:"love",em:"❤️",name:"Relationships",desc:"Friends, family, dating, feelings",col:"#EC4899"},
+{id:"fun",em:"🎮",name:"Entertainment",desc:"Games, movies, music, YouTube, social media",col:"#8B5CF6"},
+{id:"health",em:"🏥",name:"Health",desc:"Hospital, pharmacy, describing symptoms",col:"#EF4444"},
+{id:"sos",em:"🚨",name:"Emergency",desc:"Asking for help, police, lost items, accidents",col:"#EF4444"},
+{id:"school",em:"🎓",name:"School & Learning",desc:"Classroom, asking teachers, studying",col:"#06B6D4"},
+{id:"money",em:"💰",name:"Money & Finance",desc:"Banks, transfers, credit cards, ATMs",col:"#10B981"},
+{id:"home",em:"🏡",name:"Home",desc:"Housing, rentals, repairs",col:"#475569"},
+{id:"tech",em:"📱",name:"Technology",desc:"Phones, computers, internet, apps",col:"#475569"},
+{id:"culture",em:"🌎",name:"Culture & Social",desc:"Culture, etiquette, talking with foreigners",col:"#06B6D4"}];
+function inCat(c){return SCENES.filter(function(x){return x.lang===lang&&x.cat===c.id})}
+var curCat=null;
+var shuf=function(a){a=a.slice();for(var i=a.length;i>1;){var j=Math.floor(Math.random()*i--),x=a[i];a[i]=a[j];a[j]=x}return a};
+var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+var st={scene:null,i:0,mode:"type",score:0,msgs:[],fb:null,done:false,heard:"",listening:false,hint:false,reveal:false,tries:0,missed:[],vo:false};
+var rec=null;
+var app=document.getElementById("app");
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function say(t){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t.split(" / ")[0]);u.lang=LG().tts;u.rate=.9;speechSynthesis.speak(u)}catch(e){}}
+function home(){
+  st.scene=null;curCat=null;
+  var L=LG(),mine=SCENES.filter(function(x){return x.lang===lang}),tot=mine.reduce(function(n,x){return n+x.turns.length},0);
+  var h='<header class="hero"><div class="tag">LANGUAGE PRACTICE</div><h1>Practice languages through real-life situations</h1><p>Pick a language and a topic, then speak, listen or type your answers.</p><div class="stats"><span>'+L.flag+' <b>'+L.name+'</b></span><span><b>'+mine.length+'</b> situations</span><span><b>'+tot+'</b> sentences</span></div></header>';
+  h+='<h2 class="sec">Language to practice</h2><div class="langs" role="group" aria-label="Language">';
+  LANGS.forEach(function(x){h+='<button class="lang" data-l="'+x.id+'" aria-pressed="'+(x.id===lang)+'"><span>'+x.flag+'</span>'+x.name+'</button>'});
+  h+='</div><h2 class="sec">Translation under sentences</h2><div class="langs" role="group" aria-label="Translation">';
+  TRL.forEach(function(x){h+='<button class="lang" '+(x.on?'data-tr="'+x.id+'"':'disabled title="Coming soon"')+' aria-pressed="'+(x.id===trl)+'">'+x.name+(x.on?'':' <small>soon</small>')+'</button>'});
+  h+='</div><h2 class="sec">Topics</h2>';
+  var ready=CATS.filter(function(c){return inCat(c).length}),soon=CATS.filter(function(c){return !inCat(c).length});
+  var card=function(c){var n=inCat(c).length;return '<button class="cat" style="--cc:'+c.col+'" data-c="'+c.id+'"'+(n?'':' disabled')+'><span class="em">'+c.em+'</span><b>'+c.name+'</b><small>'+c.desc+'</small><span class="pill'+(n?' go':'')+'">'+(n?n+' situations · Ready':'Coming soon')+'</span></button>'};
+  if(ready.length)h+='<div class="grp">Ready to practice</div><div class="cats">'+ready.map(card).join("")+'</div>';
+  else h+='<div class="fb warn">Content for '+L.name+' is in progress. English is fully available now. <button class="link" data-l="en">Switch to English</button></div>';
+  h+='<div class="grp">Coming soon</div><div class="cats">'+soon.map(card).join("")+'</div>';
+  app.innerHTML=h;
+  app.querySelectorAll("[data-l]").forEach(function(b){b.onclick=function(){lang=b.dataset.l;try{localStorage.setItem("te_lang",lang)}catch(e){}home()}});
+  app.querySelectorAll("[data-tr]").forEach(function(b){b.onclick=function(){trl=b.dataset.tr;try{localStorage.setItem("te_tr",trl)}catch(e){}home()}});
+  app.querySelectorAll(".cat").forEach(function(b){b.onclick=function(){cat(b.dataset.c)}});
+}
+function cat(id){
+  st.scene=null;curCat=id;
+  var c=CATS.filter(function(x){return x.id===id})[0],L=LG();
+  var h='<button class="link" id="hb">← All topics</button><h1>'+c.em+' '+c.name+'</h1><p class="sub">'+L.flag+' '+L.name+' · '+c.desc+' · 10 random sentences each round</p><div class="scenes">';
+  inCat(c).forEach(function(x){var k=SCENES.indexOf(x);
+    h+='<button class="scene" data-k="'+k+'"><span class="em">'+x.em+'</span><span><b>'+x.name+'</b><small>'+x.desc+' · '+x.turns.length+' sentences</small></span></button>'});
+  app.innerHTML=h+'</div>';
+  document.getElementById("hb").onclick=home;
+  app.querySelectorAll(".scene").forEach(function(b){b.onclick=function(){start(+b.dataset.k)}});
+}
+function start(k){st={scene:SCENES[k],i:0,mode:st.mode||"type",score:0,msgs:[],fb:null,done:false,heard:"",listening:false,hint:false,reveal:false,tries:0,missed:[],vo:false};
+  if(!SR)st.mode="type";
+  st.turns=shuf(SCENES[k].turns).slice(0,10).map(function(t){return mk(t,SCENES[k])});push();draw()}
+function push(){var t=st.turns[st.i];st.msgs.push({who:"s",t:t.s,th:t.th});st.opts=t.c?shuf(t.c):null;st.pool=t.kind==="order"?shuf(t.m.split(" ").map(function(w,i){return{w:w,i:i}})):null;st.built=[];st.fb=null;st.hint=false;st.reveal=false;st.tries=0;st.heard="";setTimeout(function(){say(t.s)},250)}
+function fx(x){return norm(x).replace(/\s+/g," ").trim()}
+var KINDS={free:"ตอบอิสระ",order:"เรียงประโยค",fill:"เติมคำ",listen:"ฟังแล้วเลือก",choice:"เลือกประโยค"};
+function mk(t,sc){
+  t=Object.assign({},t);
+  if(t.c){t.kind="choice";return t}
+  var m=t.a.split(" / ")[0],w=m.split(" "),r=Math.random(),cl=function(z){return z.replace(/[^\w'-]/g,"")};
+  t.m=m;t.kind="free";
+  if(r<.2&&w.length>=3)t.kind="order";
+  else if(r>=.2&&r<.4){
+    var best=w.reduce(function(x,y){return cl(y).length>cl(x).length?y:x},w[0]),cw=cl(best);
+    if(cw.length>=4){
+      var pool=[];
+      SCENES.forEach(function(x){if(x.lang===lang)x.turns.forEach(function(u){u.a.split(" / ")[0].split(" ").forEach(function(z){z=cl(z);if(z.length>=4&&z.toLowerCase()!==cw.toLowerCase()&&pool.indexOf(z)<0)pool.push(z)})})});
+      if(pool.length>=2){t.kind="fill";t.cw=cw;t.fill=m.replace(best,best.replace(cw,"_____"));t.c=[cw].concat(shuf(pool).slice(0,2))}
+    }
+  } else if(r>=.4&&r<.6){
+    var o=sc.turns.filter(function(u){return u.a!==t.a&&!u.c}).map(function(u){return u.a.split(" / ")[0]});
+    if(o.length>=2){t.kind="listen";t.c=[m].concat(shuf(o).slice(0,2))}
+  }
+  return t}
+function norm(x){return x.toLowerCase().replace(/[’‘]/g,"'").replace(/[.,!?]/g," ")}
+function check(text){
+  var t=st.turns[st.i],n=norm(text);
+  if(!n.trim())return;
+  var ok=t.kind==="order"?fx(text)===fx(t.m):t.c?text===t.c[0]:t.kw.filter(function(k){return n.indexOf(k)>-1}).length>=t.need;
+  if(ok){if(!st.tries)st.score++;st.fb={ok:true,a:t.a}}
+  else{if(!st.tries)st.missed.push(t);st.tries++;st.fb={retry:true}}
+  st.msgs.push({who:"m",t:text.trim(),bad:!ok});
+  draw();
+}
+function next(){
+  if(st.i+1>=st.turns.length){st.done=true;draw();return}
+  st.i++;push();draw();
+}
+function draw(){
+  var sc=st.scene,n=st.turns.length;
+  var rv=st.missed.length?'<div class="fb warn" style="text-align:left;margin-bottom:12px"><b>ข้อที่ควรทบทวน</b>'+st.missed.map(function(t){return '<span class="ans">• '+esc(t.s)+' → <b>'+esc(t.a)+'</b></span>'}).join("")+'</div>':"";
+  var h='<div class="bar"><button class="link" id="back">← เปลี่ยนสถานการณ์</button><button class="link" id="trt" title="Translation">🌐 '+(trl==="off"?"Off":"TH")+'</button><div class="prog" aria-hidden="true"><i style="width:'+(((st.done?n:st.i)/n)*100)+'%"></i></div></div>';
+  if(!st.done)h+='<details class="vocab"'+(st.vo?' open':'')+'><summary>📚 ศัพท์ในฉากนี้ ('+sc.v.length+')</summary>'+sc.v.map(function(w){return '<div class="w"><button class="spk" data-say="'+esc(w[0])+'" aria-label="ฟังเสียง">🔊</button><b>'+esc(w[0])+'</b> '+(trl==="off"?"":'<span class="th" style="display:inline">'+esc(w[1])+'</span>')+'</div>'}).join("")+'</details>';
+  h+='<div class="chat" aria-live="polite">';
+  st.msgs.forEach(function(m,ix){
+    if(m.who==="s"&&(st.mode==="speak"||st.turns[st.i].kind==="listen")&&!st.reveal&&!st.done&&ix===st.msgs.length-1)h+='<div class="b staff"><b>🎧 ฟังแล้วตอบ</b><div class="tools"><button class="btn alt" data-say="'+esc(m.t)+'">🔊 ฟังอีกครั้ง</button><button class="btn alt" id="reveal">แสดงข้อความ</button></div></div>';
+    else if(m.who==="s")h+='<div class="b staff">'+esc(m.t)+'<button class="spk" data-say="'+esc(m.t)+'" aria-label="ฟังเสียง">🔊</button>'+(trl==="off"?"":'<span class="th">'+esc(m.th)+'</span>')+'</div>';
+    else h+='<div class="b me'+(m.bad?' bad':'')+'">'+esc(m.t)+'</div>';
+  });
+  h+='</div>';
+  if(st.done){
+    h+='<div class="done"><div class="big">'+(st.score===n?"🎉":"👍")+'</div><h1>ตอบถูกครั้งแรก '+st.score+' จาก '+n+'</h1><p class="sub">'+(st.score===n?"เยี่ยมมาก พร้อมไปเที่ยวแล้ว":"ลองฝึกอีกรอบเพื่อให้คล่องขึ้น")+'</p>'+rv+'<div class="tools" style="justify-content:center"><button class="btn" id="again">ฝึกฉากนี้อีกครั้ง</button><button class="btn alt" id="other">เลือกฉากอื่น</button></div></div>';
+  } else if(st.fb&&st.fb.retry){
+    h+='<div class="fb try"><b>ยังไม่ตรงกับสถานการณ์</b> ลองตอบอีกครั้งนะ ขอคำใบ้ได้</div><div class="tools"><button class="btn" id="retry">🔁 ลองตอบอีกครั้ง</button><button class="btn alt" id="showans">ดูเฉลยแล้วไปต่อ</button></div>';
+  } else if(st.fb){
+    var f=st.fb;
+    h+='<div class="fb '+(f.ok?'ok':'try')+'"><b>'+(f.ok?'ใช้ได้เลย!':'ลองดูตัวอย่างนี้')+'</b><span class="ans">ตัวอย่าง: '+esc(f.a)+' <button class="spk" data-say="'+esc(f.a)+'" aria-label="ฟังเสียง">🔊</button></span></div><div class="tools"><button class="btn" id="next">'+(st.i+1>=n?'ดูผล':'ประโยคต่อไป')+'</button></div>';
+  } else {
+    var T0=st.turns[st.i],kd=T0.kind,ch=T0.c||kd==="order";
+    h+='<div class="kind">'+KINDS[kd]+'</div>';
+    if(!ch)h+='<div class="modes" role="group" aria-label="โหมดตอบ"><button id="mt" aria-pressed="'+(st.mode==="type")+'">⌨️ พิมพ์</button><button id="ms" aria-pressed="'+(st.mode==="speak")+'"'+(SR?'':' disabled title="เบราว์เซอร์นี้ไม่รองรับไมค์"')+'>🎤 พูด</button></div>';
+    if(kd==="order"){
+      h+='<p class="note" style="margin:0 0 8px">เรียงคำให้เป็นประโยคตอบ</p><div class="built">'+(st.built.length?st.built.map(function(ix){return '<button class="chip" data-r="'+ix+'">'+esc(st.pool[ix].w)+'</button>'}).join(""):'<span class="th">แตะคำด้านล่างเพื่อเรียงเป็นประโยค</span>')+'</div><div class="pool">'+st.pool.map(function(q,ix){return st.built.indexOf(ix)>-1?'':'<button class="chip" data-a="'+ix+'">'+esc(q.w)+'</button>'}).join("")+'</div><div class="tools"><button class="btn" id="chk"'+(st.built.length===st.pool.length?'':' disabled')+'>ตรวจคำตอบ</button><button class="btn alt" id="clr">ล้าง</button></div>';
+    } else if(ch){
+      h+=(kd==="fill"?'<div class="fb sel" style="margin-bottom:10px">เติมคำที่หายไป: <b>'+esc(T0.fill)+'</b></div>':'')+'<div class="opts">'+st.opts.map(function(o){return '<button class="opt" data-t="'+esc(o)+'">'+esc(o)+'</button>'}).join("")+'</div>';
+    } else if(st.mode==="type"){
+      h+='<div class="row"><input type="text" id="inp" placeholder="พิมพ์คำตอบภาษาอังกฤษ" autocomplete="off" autocapitalize="sentences"><button class="btn" id="send">ส่ง</button></div>';
+    } else {
+      h+='<button class="btn mic'+(st.listening?' on':'')+'" id="mic">'+(st.listening?'● กำลังฟัง… แตะเพื่อหยุด':'🎤 แตะแล้วพูดตอบ')+'</button><div class="heard">'+(st.heard?'ได้ยินว่า: '+esc(st.heard):'')+'</div>';
+    }
+    if(st.hint)h+='<div class="fb warn" style="margin-top:10px">ลองตอบว่า: <b>'+esc(st.turns[st.i].a)+'</b></div>';
+    if(!ch)h+='<div class="tools"><button class="btn alt" id="hint">💡 ขอคำใบ้</button></div>';
+    if(!SR&&!ch)h+='<p class="note">เบราว์เซอร์นี้ยังไม่รองรับโหมดพูด ใช้โหมดพิมพ์แทนได้เลย</p>';
+  }
+  app.innerHTML=h;
+  bind();
+}
+function bind(){
+  var $=function(i){return document.getElementById(i)};
+  $("back").onclick=function(){if(rec){try{rec.abort()}catch(e){}}curCat?cat(curCat):home()};
+  app.querySelectorAll("[data-say]").forEach(function(b){b.onclick=function(){say(b.dataset.say)}});
+  if($("again"))$("again").onclick=function(){start(SCENES.indexOf(st.scene))};
+  if($("other"))$("other").onclick=function(){curCat?cat(curCat):home()};
+  if($("next"))$("next").onclick=next;
+  if($("reveal"))$("reveal").onclick=function(){st.reveal=true;draw()};
+  app.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){check(b.dataset.t)}});
+  app.querySelectorAll("[data-a]").forEach(function(b){b.onclick=function(){st.built.push(+b.dataset.a);draw()}});
+  app.querySelectorAll("[data-r]").forEach(function(b){b.onclick=function(){st.built.splice(st.built.indexOf(+b.dataset.r),1);draw()}});
+  if($("trt"))$("trt").onclick=function(){trl=trl==="off"?"th":"off";try{localStorage.setItem("te_tr",trl)}catch(e){}draw()};
+  if($("clr"))$("clr").onclick=function(){st.built=[];draw()};
+  if($("chk"))$("chk").onclick=function(){check(st.built.map(function(ix){return st.pool[ix].w}).join(" "))};
+  if($("retry"))$("retry").onclick=function(){st.fb=null;st.built=[];draw()};
+  if($("showans"))$("showans").onclick=function(){st.fb={ok:false,a:st.turns[st.i].a};draw()};
+  var vd=app.querySelector("details.vocab");if(vd)vd.ontoggle=function(){st.vo=vd.open};
+  if($("hint"))$("hint").onclick=function(){st.hint=true;draw()};
+  if($("mt"))$("mt").onclick=function(){if(rec){try{rec.abort()}catch(e){}}st.mode="type";st.listening=false;draw()};
+  if($("ms"))$("ms").onclick=function(){st.mode="speak";draw()};
+  if($("send")){
+    var go=function(){check($("inp").value)};
+    $("send").onclick=go;
+    $("inp").onkeydown=function(e){if(e.key==="Enter")go()};
+    $("inp").focus({preventScroll:true});
+  }
+  if($("mic"))$("mic").onclick=listen;
+}
+function listen(){
+  if(st.listening){try{rec.stop()}catch(e){}return}
+  try{
+    rec=new SR();rec.lang=LG().tts;rec.interimResults=false;rec.maxAlternatives=1;
+    var got="";
+    rec.onresult=function(e){got=e.results[0][0].transcript;st.heard=got};
+    rec.onerror=function(e){st.listening=false;st.heard=e.error==="not-allowed"?"ไม่ได้รับอนุญาตใช้ไมค์ ลองใช้โหมดพิมพ์แทน":"ฟังไม่ชัด ลองอีกครั้ง";draw()};
+    rec.onend=function(){st.listening=false;if(got)check(got);else draw()};
+    rec.start();st.listening=true;st.heard="";draw();
+  }catch(e){st.listening=false;st.mode="type";draw()}
+}
+home();
+</script>
+</body>
+</html>
